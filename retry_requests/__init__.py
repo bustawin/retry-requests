@@ -32,7 +32,7 @@ class RSession(TSession):
      for all of its requests.
     """
 
-    def __init__(self, timeout: int = 15):
+    def __init__(self, timeout: Union[int, timedelta] = 5):
         super().__init__(timeout)
         self.hooks["response"] = lambda r, *args, **kwargs: r.raise_for_status()
 

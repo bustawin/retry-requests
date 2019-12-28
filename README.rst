@@ -15,7 +15,14 @@ Basic usage:
   my_session = retry()
   my_session.get("http://foo.bar")
 
-Using your session and configurations:
+This ``get`` will retry three times in case of error waiting some time between retries.
+Errors could be:
+
+- Waiting for the server to start answering for 5 seconds.
+- No access to the server or a dropped connection.
+- An HTTP answer of 500, 502, or 504.
+
+You can change these defaults:
 
 .. code-block:: python
 
@@ -24,9 +31,12 @@ Using your session and configurations:
   my_session = retry(Session(), retries=5, backoff_factor=0.2)
   my_session.get('https://foo.bar')
 
+Check the function ``retry`` to know more about this configuration.
+
 Note that you have a ``TSession``, a ``Session`` with a default timeout,
 and ``RSession``, a ``Session`` with a timeout that always ``raise_for_status()``,
 for your convenience.
+
 
 Heavily inspired from `Peterbe.com <https://www.peterbe.com/plog/
 best-practice-with-retries-with-requests>`_. Thank you!
