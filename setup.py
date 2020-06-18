@@ -6,14 +6,14 @@ test_requires = ["pytest"]
 
 setup(
     name="retry-requests",
-    version="1.0.0",
+    version="1.0.1",
     url="https://github.com/bustawin/retry-requests",
     project_urls={
         "Documentation": "https://github.com/bustawin/retry-requests",
         "Code": "https://github.com/bustawin/retry-requests",
         "Issue tracker": "https://github.com/bustawin/retry-requests/issues",
     },
-    license="AGPLV3",
+    license="GPLv3+",
     author="Xavier Bustamante Talavera",
     author_email="xavier@bustawin.com",
     description="Make requests's sessions auto-retry on failure.",
