@@ -23,6 +23,13 @@ def test_retry_failure(caplog):
     )
 
 
+def test_retry_failure_post(caplog):
+    """Retries in a non-idempotent method such as a POST."""
+    session = retry(session=RSession(), status_to_retry=(200,), retries=1)
+    with pytest.raises(requests.exceptions.RetryError):
+        session.post("http://example.com")
+
+
 def test_retry_success():
     """Gets a successful URL."""
     session = retry()

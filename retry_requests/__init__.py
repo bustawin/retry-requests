@@ -70,7 +70,7 @@ def retry(
     session = session or TSession()
 
     # Retry too in non-idempotent methods like POST
-    kwargs.setdefault("method_whitelist", False)
+    kwargs.setdefault("allowed_methods", None)
 
     r = Retry(
         total=retries,

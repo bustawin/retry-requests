@@ -6,7 +6,7 @@ test_requires = ["pytest"]
 
 setup(
     name="retry-requests",
-    version="1.0.1",
+    version="2.0.0",
     url="https://github.com/bustawin/retry-requests",
     project_urls={
         "Documentation": "https://github.com/bustawin/retry-requests",
@@ -20,7 +20,7 @@ setup(
     packages=find_packages(),
     python_requires=">=3.6",
     long_description=Path("README.rst").read_text("utf8"),
-    install_requires=["requests"],
+    install_requires=["requests", "urllib3>=1.26"],
     extras_require={"test": test_requires},
     tests_require=test_requires,
     setup_requires=["pytest-runner"],
